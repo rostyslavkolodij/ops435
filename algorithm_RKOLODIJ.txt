@@ -1,0 +1,75 @@
+First of all, before creating any python script we should insert shabang line:
+#!/usr/bin/env python3
+
+Than, we have to comment with name of the script, purpose of it and name of person that has written this.
+
+After that, we have to import python modules that is going to be used to manipulate different parts of the Python code:
+import sys
+import os
+
+
+Than, we proceed to the main program:
+
+1. We have to mention __name__ variable to be set as __main__, so the  module can be running in the main program 
+or code can be running with imported module( __name__ variable will be set to that module`s name)
+
+2. We set up if function to check for the number of the arguments(len(sys.argv)). 
+If the number of arguments is not equal 2, than we return usage function to explain what to input and exit the program.
+
+3. In step 2, we create a list with name of each month and set with number of each month(as keys) and the amount of days(as values). 
+Also, we get user input with sys.argv function.
+
+4. In step 3, we create a variable allow_chars that set the date format to straight digits without other symbols and spaces.
+After that, we create another variable dob that use sanitize function to make the user input the same format as allow_chars variable. 
+We print the output: 'Sanitized user data:', dob
+
+5. In step 4, we check for the size of the input. We create a variable result that use fucntion size_check to check for dob size. 
+If the size of the dob is not 8 digits, it returns Error 09: wrong data entered and exits. 
+
+6. In step 5, we create 3 variables: year, month and day. Year represent 4 first digits of the value of dob, month represent 5th or 5th and 6th digits of the value and day represents the last 2 digits of the value. 
+ 
+7. In step 6, we check the result variable for proper values. If the first 4 digits are lower than 1900, we run into the error and print out Error 10: year out of range, must be 1900 or later.
+Also, we have to check whether the year is leap or not. If it is, we change the value of the second item in the list to 29. 
+Same check with proceed with the month. If result is not is range between 1-12, it returns an Error 02: Wrong month entered and exits
+The last check in this step is to check how many days are in the month. If the number is not between 1 and days_in_month[month] value, it prints and error ErrorL 03: wrong day entered and exits. 
+
+8. In step 7, we create a new_dob variable to store integer values of month name with the value of month -1,  so, for example, the list item 5 will be 6th month. Than, we add the integer value of day and year. 
+
+9. In step 8, we print out 'Your date of birth is:', new_dob . The main part ends. 
+
+
+10. Prior to creating the main program, we have to specify each functions that is going to be used:
+
+def leap_year(obj) - is the function to check whether the year that is entered is leap or no.
+
+If the integer value can be divisible by 4, the year is considered leap. If it is not divisible by 4, than it is not. 
+
+
+def sanitize(obj1,obj2) - is the function to make the input clear and remove all of the non-digits characters. 
+
+It has to accept YYYYMMDD, YYYY/MM/DD, YYYY-MM-DD or YYYY.MM.DD and remove "'/', '-', '.'" .
+
+ 
+def size_check(obj, intobj) is the function to check the number of digits returned.
+
+It has to check variable and number of its digts. 
+
+
+def range_check(obj1, obj2) is the function to check the number of digits returned.
+
+It has to check for the variable returned and range specified. 
+
+
+def usage() is the function the function to explain how many arguments should be entered. 
+
+
+That is the end of the Python script. 
+
+
+
+
+
+
+
+
+
